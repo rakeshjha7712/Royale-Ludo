@@ -121,6 +121,20 @@
         .sub-btn:hover { background: var(--glass); color: var(--text-main); }
         .hidden-opt { display: none; }
 
+        /* --- FOOTER --- */
+        .home-footer {
+            position: absolute; bottom: 20px; width: 100%;
+            display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+            gap: 15px; font-size: 0.8rem; color: var(--text-sec);
+            padding: 0 20px;
+        }
+        .home-footer a {
+            color: var(--text-sec); text-decoration: none; cursor: pointer;
+            transition: color 0.2s; position: relative;
+        }
+        .home-footer a:hover { color: var(--text-main); text-decoration: underline; }
+        .home-footer span { opacity: 0.5; }
+
         /* --- MODALS --- */
         .modal-overlay {
             position: fixed; inset: 0; background: rgba(0,0,0,0.8);
@@ -143,15 +157,19 @@
         .menu-item-btn {
             background: rgba(255,255,255,0.05); border: 1px solid var(--glass-border);
             color: var(--text-main); padding: 15px; border-radius: 12px;
-            font-size: 1rem; font-weight: 600; cursor: pointer; text-align: left;
+            font-size: 0.95rem; font-weight: 600; cursor: pointer; text-align: left;
             transition: 0.2s; display: flex; justify-content: space-between;
         }
         .menu-item-btn:after { content: '›'; font-size: 1.2rem; opacity: 0.5; }
         .menu-item-btn:hover { background: rgba(255,255,255,0.1); transform: translateX(5px); }
 
         /* Info Content View */
-        .info-content { text-align: left; color: var(--text-sec); font-size: 0.95rem; line-height: 1.6; overflow-y: auto; margin-bottom: 15px; }
-        .info-content strong { color: var(--text-main); }
+        .info-content { text-align: left; color: var(--text-sec); font-size: 0.9rem; line-height: 1.6; overflow-y: auto; margin-bottom: 15px; }
+        .info-content strong { color: var(--text-main); display: block; margin-top: 10px; margin-bottom: 4px; }
+        .info-content ul { padding-left: 20px; margin-top: 5px; }
+        .info-content li { margin-bottom: 5px; }
+        .sitemap-list a { display: block; padding: 8px; border-bottom: 1px solid var(--glass-border); color: var(--primary); text-decoration: none; cursor: pointer; }
+        .sitemap-list a:hover { color: var(--text-main); }
 
         .toggle-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--glass-border); }
         .toggle-col { display: flex; flex-direction: column; align-items: flex-start; padding: 12px 0; border-bottom: 1px solid var(--glass-border); gap: 10px; }
@@ -266,10 +284,7 @@
             position: relative; /* Critical for token positioning */
         }
         
-        /* Token Layer now inside Board to fix offsets */
-        #token-layer {
-            position: absolute; inset: 0; pointer-events: none; z-index: 50;
-        }
+        #token-layer { position: absolute; inset: 0; pointer-events: none; z-index: 50; }
 
         .cell { border: 1px solid var(--cell-border); position: relative; background: rgba(255,255,255,0.4); }
         
@@ -378,6 +393,16 @@
         <div class="hero-title">LUDO<br>ROYALE</div>
         <button class="main-btn" onclick="Game.showSetup()">NEW GAME</button>
         <button id="resume-btn" class="sub-btn hidden-opt" onclick="Game.resumeGame()">RESUME GAME</button>
+        
+        <footer class="home-footer">
+            <a onclick="Game.openInfoPage('about')">About Us</a>
+            <a onclick="Game.openInfoPage('contact')">Contact</a>
+            <a onclick="Game.openInfoPage('privacy')">Privacy Policy</a>
+            <a onclick="Game.openInfoPage('terms')">Terms & Conditions</a>
+            <a onclick="Game.openInfoPage('cookies')">Cookie Policy</a>
+            <a onclick="Game.openInfoPage('sitemap')">Sitemap</a>
+            <span>© 2026 Ludo Royale PRO</span>
+        </footer>
     </div>
 
     <div id="settings-modal" class="modal-overlay">
@@ -425,10 +450,13 @@
             <div id="menu-view">
                 <div class="modal-title">MENU</div>
                 <div class="menu-list-container">
-                    <button class="menu-item-btn" onclick="Game.showPage('about')">About Game</button>
                     <button class="menu-item-btn" onclick="Game.showPage('rules')">How to Play</button>
+                    <button class="menu-item-btn" onclick="Game.showPage('about')">About Us</button>
                     <button class="menu-item-btn" onclick="Game.showPage('privacy')">Privacy Policy</button>
+                    <button class="menu-item-btn" onclick="Game.showPage('terms')">Terms & Conditions</button>
+                    <button class="menu-item-btn" onclick="Game.showPage('cookies')">Cookie Policy</button>
                     <button class="menu-item-btn" onclick="Game.showPage('contact')">Contact Us</button>
+                    <button class="menu-item-btn" onclick="Game.showPage('sitemap')">Sitemap</button>
                 </div>
                 <button class="modal-btn" onclick="Game.toggleInfo(false)">CLOSE</button>
             </div>
@@ -501,8 +529,8 @@
     <script>
         const PAGES = {
             about: {
-                title: "ABOUT GAME",
-                content: "Ludo Royale PRO v5 is the ultimate strategic board game. Play with friends locally or challenge our advanced AI bots. <br><br>Features include:<br>- 3D Rolling Dice<br>- Resume Game Support<br>- Dynamic Themes"
+                title: "ABOUT US",
+                content: "<strong>Ludo Royale PRO v5</strong><br>We are dedicated to bringing the classic board game experience to the digital age. Built with passion, our goal is to provide a seamless, ad-free, and engaging strategy game for friends and family.<br><br><strong>Our Mission:</strong> To connect people through the joy of classic gaming using modern web technology."
             },
             rules: {
                 title: "HOW TO PLAY",
@@ -510,11 +538,23 @@
             },
             privacy: {
                 title: "PRIVACY POLICY",
-                content: "We respect your privacy. This game runs entirely in your browser. We do not collect, store, or transmit any personal data. Game progress is saved locally on your device."
+                content: "<strong>Last Updated: Jan 2026</strong><br>We respect your privacy. This game runs entirely in your browser.<br><br><strong>Data Collection:</strong> We do not collect, store, or transmit any personal data to external servers.<br><strong>Local Storage:</strong> We use your device's LocalStorage only to save your game progress and settings preferences.<br><strong>Third Parties:</strong> No third-party analytics or tracking pixels are used."
             },
             contact: {
                 title: "CONTACT US",
-                content: "Have feedback or found a bug?<br><br>Email: <strong>support@ludoroyale.com</strong><br>Twitter: @LudoRoyalePro"
+                content: "Have feedback, found a bug, or just want to say hello?<br><br><strong>Email:</strong> support@ludoroyale.com<br><strong>Address:</strong> 123 Game Studio Lane, Digital City, Web 3.0<br><strong>Social:</strong> @LudoRoyalePro on all platforms."
+            },
+            terms: {
+                title: "TERMS & CONDITIONS",
+                content: "<strong>1. Acceptance:</strong> By playing Ludo Royale PRO, you agree to these terms.<br><strong>2. Usage:</strong> This game is for entertainment purposes only. No real money gambling is involved.<br><strong>3. Intellectual Property:</strong> All game assets and code are property of Ludo Royale PRO.<br><strong>4. Disclaimer:</strong> The game is provided 'as is'. We are not liable for any interruptions or data loss related to browser cache clearing."
+            },
+            cookies: {
+                title: "COOKIE POLICY",
+                content: "<strong>We believe in a clean web.</strong><br><br>This website does <strong>not</strong> use tracking cookies, advertising cookies, or third-party cookies.<br><br>We strictly use <strong>Local Storage</strong> (a modern alternative to cookies) solely for:<br>- Saving your active game state.<br>- Remembering your volume and theme settings.<br><br>By using this site, you consent to this essential local storage usage."
+            },
+            sitemap: {
+                title: "SITEMAP",
+                content: "<strong>Game Sections</strong><div class='sitemap-list'><a onclick=\"Game.showPage('rules')\">How to Play</a><a onclick=\"Game.showSetup()\">New Game Setup</a></div><br><strong>Company & Legal</strong><div class='sitemap-list'><a onclick=\"Game.showPage('about')\">About Us</a><a onclick=\"Game.showPage('contact')\">Contact Us</a><a onclick=\"Game.showPage('privacy')\">Privacy Policy</a><a onclick=\"Game.showPage('terms')\">Terms & Conditions</a><a onclick=\"Game.showPage('cookies')\">Cookie Policy</a></div><br><strong>Site Stats</strong><br>Current Version: v5.0<br>Total Modules: 7"
             }
         };
 
@@ -604,6 +644,11 @@
                     el.classList.remove('open'); 
                     this.pauseInternal(false); 
                 }
+            },
+            openInfoPage(pageId) {
+                // Direct access helper for Footer links
+                this.toggleInfo(true);
+                this.showPage(pageId);
             },
             showMenuList() {
                 document.getElementById('menu-view').style.display = 'block';
@@ -1124,4 +1169,3 @@
     </script>
 </body>
 </html>
-
