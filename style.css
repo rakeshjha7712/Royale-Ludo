@@ -133,6 +133,13 @@ filter: drop-shadow(0 0 8px rgba(100, 116, 139, 0.25));
 .home-footer a:hover { color: var(--text-main); text-decoration: underline; }
 .home-footer span { opacity: 0.5; }
 
+.footer-note {
+    position: absolute; bottom: 10px; width: 100%;
+    display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+    gap: 10px; font-size: 0.8rem; color: var(--text-sec);
+    padding: 0 10px;
+}
+
 /* --- MODALS --- */
 .modal-overlay {
     position: fixed; inset: 0; background: rgba(0,0,0,0.8);
@@ -383,4 +390,5 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: 
     50% { transform: translateY(-20px) rotate(180deg); }
     100% { transform: translateY(0) rotate(360deg); }
 }
+
 .fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
