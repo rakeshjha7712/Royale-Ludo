@@ -3,31 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sitemap - Ludo Royale PRO</title>
+    <title>Site Navigation - Ludo MINIMA</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        .info-content {
+            text-align: left;
+            line-height: 1.6;
+        }
+        .sitemap-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 15px;
+        }
+        .sitemap-section h2 {
+            color: #ffd700;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .sitemap-link-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .sitemap-item {
+            display: block;
+            text-decoration: none;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+        .sitemap-item:hover {
+            background: rgba(255, 215, 0, 0.2);
+            padding-left: 20px; /* Hover animation effect */
+        }
+        .sitemap-item strong {
+            display: block;
+            font-size: 1rem;
+            color: #fff;
+        }
+        .sitemap-item span {
+            font-size: 0.85rem;
+            color: #aaa;
+            font-weight: 400;
+        }
+    </style>
 </head>
 <body class="content-page">
     <div class="content-container">
-        <h1 class="modal-title page-title">SITEMAP</h1>
+        <h1 class="modal-title page-title">SITE MAP</h1>
         <div class="info-content">
-            <strong>Game Sections</strong>
-            <div class='sitemap-list'>
-                <a href="rules.html">How to Play</a>
-                <a href="index.html">New Game Setup</a>
+            <p style="margin-bottom: 30px; text-align: center; color: #ccc;">
+                Welcome to the complete directory of <strong>Ludo MINIMA</strong>. Navigate easily to any section of our platform below.
+            </p>
+
+            <div class="sitemap-section">
+                <h2>🎮 Game Zone</h2>
+                <div class="sitemap-link-group">
+                    <a href="index.html" class="sitemap-item">
+                        <strong>Play Ludo Now</strong>
+                        <span>Start a new match with friends or bots.</span>
+                    </a>
+                    <a href="rules.html" class="sitemap-item">
+                        <strong>Game Rules & Strategy</strong>
+                        <span>Learn how to play, unlock tokens, and win.</span>
+                    </a>
+                </div>
             </div>
-            <br>
-            <strong>Company & Legal</strong>
-            <div class='sitemap-list'>
-                <a href="about.html">About Us</a>
-                <a href="contact.html">Contact Us</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms & Conditions</a>
-                <a href="cookies.html">Cookie Policy</a>
+
+            <div class="sitemap-section">
+                <h2>⚖️ Legal & Privacy</h2>
+                <div class="sitemap-link-group">
+                    <a href="privacy.html" class="sitemap-item">
+                        <strong>Privacy Policy</strong>
+                        <span>How we handle data and local storage.</span>
+                    </a>
+                    <a href="terms.html" class="sitemap-item">
+                        <strong>Terms & Conditions</strong>
+                        <span>Rules of usage and player conduct.</span>
+                    </a>
+                    <a href="cookies.html" class="sitemap-item">
+                        <strong>Cookie Policy</strong>
+                        <span>Information on AdSense cookies and settings.</span>
+                    </a>
+                </div>
             </div>
-            <br><strong>Site Stats</strong><br>
-            Current Version: v5.0<br>
-            Total Modules: 7
+
+            <div class="sitemap-section">
+                <h2>🏢 About & Support</h2>
+                <div class="sitemap-link-group">
+                    <a href="about.html" class="sitemap-item">
+                        <strong>About Us</strong>
+                        <span>Our mission, vision, and the team behind the game.</span>
+                    </a>
+                    <a href="contact.html" class="sitemap-item">
+                        <strong>Contact Support</strong>
+                        <span>Get help, report bugs, or send feedback.</span>
+                    </a>
+                </div>
+            </div>
+
+            <p style="text-align: center; font-size: 0.8rem; margin-top: 20px; color: #666;">
+                System Version: v5.0.1 (Stable)
+            </p>
         </div>
         <a href="index.html" class="modal-btn">BACK TO GAME</a>
     </div>
