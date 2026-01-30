@@ -136,7 +136,7 @@ filter: drop-shadow(0 0 8px rgba(100, 116, 139, 0.25));
 .footer-note {
     position: absolute; bottom: 10px; width: 100%;
     display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
-    gap: 10px; font-size: 0.8rem; color: var(--text-sec);
+    gap: 10px; font-size: 0.5rem; color: var(--text-sec);
     padding: 0 10px;
 }
 
@@ -392,4 +392,5 @@ input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; appearance: 
 }
 
 .fade-out { opacity: 0; visibility: hidden; pointer-events: none; }
+
 
